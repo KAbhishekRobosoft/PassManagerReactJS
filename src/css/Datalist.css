@@ -1,0 +1,108 @@
+.listCon {
+  height: 100vh;
+  width: 100vw;
+}
+
+.listMainCon {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.headerStyle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  width: 30%;
+}
+
+.navListDisp {
+  height: 56px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-color: #0e85ff;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 1px 5px 1px grey;
+}
+
+.burgerImg {
+  width: 24px;
+  height: 24px;
+  margin-left: 18px;
+}
+
+.listHeadText {
+  max-width: 35px;
+  font-family: "Open Sans Bold", sans-serif;
+  color: white;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.iconAcc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  height: 56px;
+  margin-right: 19px;
+}
+
+.lockerSites {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 37px;
+  margin-top: 17px;
+  width: 80%;
+  align-self: center;
+}
+
+.dropdown {
+  border: none;
+  height: 32px;
+  margin-right: 4px;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.optionCon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.sitesText {
+  font-family: "Open Sans SemiBold", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  color: #3c4857;
+  border-bottom: 3px solid #ffa136;
+}
+
+.lengthTextCon {
+  height: 32px;
+  width: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0e85ff;
+  border-radius: 15px;
+}
+
+.lengthText {
+  color: white;
+}
+
+.listDisplay{
+    min-height: calc(100vh - 133px);
+    margin-top: 20.2px;
+}
