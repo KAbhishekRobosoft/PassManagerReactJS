@@ -7,18 +7,21 @@ import search from "../images/search1.png";
 import ListDisplay from "../components/ListDisplay";
 
 function Datalist() {
-    const data= [{
-        src:"../images/facebook.png",
-        name:"Facebook",
-        url:"www.facebook.com"
-    }]
+  const data = [
+    {
+      id: 1,
+      src: "../images/youtube.png",
+      name: "Facebook",
+      url: "www.facebook.com",
+    },
+  ];
   return (
     <div className="listCon">
       <div className="listMainCon">
         <div className="navListDisp">
-        <div className="headerStyle">
-          <img className="burgerImg" src={burger} alt="burger" />
-          <p className="listHeadText">PASS MANAGER</p>
+          <div className="headerStyle">
+            <img className="burgerImg" src={burger} alt="burger" />
+            <p className="listHeadText">PASS MANAGER</p>
           </div>
           <div className="iconAcc">
             <img className="searchImg" src={search} alt="search" />
@@ -42,13 +45,9 @@ function Datalist() {
           </div>
         </div>
         <div className="listDisplay">
-          {
-            data.map(ele=>{
-              return(
-                  <ListDisplay />
-              )
-            })
-          }
+          {data.length > 0 ? data.map((ele) => {
+            return <ListDisplay key={ele.id} ele={ele} />;
+          }):null}
         </div>
       </div>
     </div>

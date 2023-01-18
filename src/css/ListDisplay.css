@@ -1,0 +1,38 @@
+.listDisplayCon {
+  width: 90%;
+  border: 1px solid transparent;
+  height: 104px;
+  display: flex;
+  justify-content: center;
+  border-radius: 12.6px;
+  background-color: white;
+  box-shadow: 1px 1px 5px 1px grey;
+}
+
+.listImg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  height:65.7px;
+  width:90%
+}
+
+.textCopy{
+    display: flex;
+    align-items: center;
+    
+}
+
+.listDispName{
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    border:1px solid black;
+    width:40%
+}
+
+.listText{
+    border:1px solid black;
+}
+
