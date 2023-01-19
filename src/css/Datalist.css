@@ -1,6 +1,7 @@
 .listCon {
   height: 100vh;
   width: 100vw;
+  position: relative;
 }
 
 .listMainCon {
@@ -8,6 +9,8 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  background-color: #f4f4f4;
+  position: relative;
 }
 
 .headerStyle {
@@ -69,6 +72,7 @@
   margin-right: 4px;
   font-size: 18px;
   line-height: 27px;
+  background-color: #f4f4f4;
 }
 
 .optionCon {
@@ -76,6 +80,43 @@
   flex-direction: row;
   align-items: center;
   margin-right: 20px;
+}
+
+.searchBar {
+  height: 59px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.searchBarText {
+  width: 80%;
+  padding: 10px;
+  height: 35px;
+  border: none;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.searchBarText:focus {
+  outline: none;
+}
+
+.iconSty {
+  height: 16px;
+  width: 16px;
+  color: #0e85ff;
+}
+
+.rightIcon {
+  width: 20%;
+  background-color: white;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .sitesText {
@@ -102,11 +143,198 @@
   color: white;
 }
 
-.listDisplay{
-    min-height: calc(100vh - 133px);
-    background-color: #f4f4f4;
-    margin-top: 20.2px;
+.listDisplay {
+  min-height: calc(100vh - 133px);
+  background-color: #f4f4f4;
+  margin-top: 20.2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+}
+
+.addBtn0{
+  position: fixed;
+  right: 20px;
+  bottom:21px;
+}
+
+.listMainCon1 {
+  display: none;
+}
+
+@media screen and (min-width:700px){
+  .iconAcc{
+    width:20%
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .listCon {
+    background-color: #e3e5eb;
+  }
+
+
+  .listMainCon {
+    display: none;
+  }
+
+  .listMainCon1 {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .sideBar {
+    width: 120px;
+    min-height: 100vh;
+    background-color: #0e85ff;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .burgerImg1 {
+    margin-top: 62px;
+  }
+
+  .sideIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homeCon1 {
+    width: 120px;
+    border-left: 5px solid #ffa136;
+    height: 80px;
+    margin-top: 104px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .circle {
+    position: absolute;
+    right: -5px;
+    width: 17px;
+    height: 17px;
+    background-color: #ffa136;
+    border-radius: 25px;
+  }
+
+  .navBar {
+    width: calc(100vw - 120px);
+    height: 104px;
+    background-color: #e3e5eb;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+  }
+
+  .navLogo {
+    width: 179px;
+    height: 70px;
+    margin-left: 109px;
+    margin-top: 10px;
+  }
+
+  .navIcons {
+    width: 35%;
+    display: flex;
+    margin-right: 40px;
+    align-items: center;
+  }
+
+  .lockerSites1 {
+    display: flex;
+    justify-content: space-between;
+    height: 114px;
+    margin-left: 91px;
+    margin-top: 38px;
+    width: 85.5%;
+  }
+
+  .navCon {
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 120px);
+    height: 100vh;
+  }
+
+  .sitesDesc1 {
+    width: 40%;
+    height: 114px;
+  }
+
+  .siteText1 {
+    font-size: 30px;
+    font-family: "Open Sans SemiBold", sans-serif;
+    line-height: 41px;
+    max-width: 70px;
+    margin-top: 2px;
+    border-bottom: 4px solid #ffa136;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  .searchCon1 {
+    height: 114px;
+    width: 40%;
+    display: flex;
+  }
+
+  .inputStyle1 {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+
+  .searchText1 {
+    height: 22px;
+    width: 65%;
+    border: none;
+    border-bottom: 1px solid #0e85ff;
+    background-color: #e3e5eb;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: "Open Sans Regular", sans-serif;
+    margin-top: 5px;
+  }
+
+  .searchText1:focus {
+    outline: none;
+  }
+
+  .searchIcon1 {
+    height: 24px;
+    width: 24px;
+    border-bottom: 1px solid #0e85ff;
+    margin-top: 5px;
+  }
+
+  .addBtn1 {
+    height: 48px;
+    width: 48px;
+  }
+
+  .listDisplay1 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .navIcons {
+    width: 20%;
+  }
+
+  .inputStyle1 {
+    width: 60%;
+  }
 }

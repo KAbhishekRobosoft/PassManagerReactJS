@@ -1,0 +1,150 @@
+.addSiteCon {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.addSiteNav {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  background-color: #0e85ff;
+  box-shadow: 0px 1px 5px 1px grey;
+  align-items: center;
+}
+
+.backIcon {
+  height: 20px;
+  width: 20px;
+  margin-left: 16px;
+}
+
+.addText {
+  margin-left: 32.02px;
+  color: white;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.addSiteEntry {
+  height: calc(100vh - 56px);
+  width: 100%;
+}
+
+.addSiteForm {
+  height: calc(100vh - 98px);
+  position: relative;
+}
+
+.addSiteInput {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-left: 19.5px;
+  margin-top: 25px;
+  margin-bottom: 29.5;
+  margin-right: 25px;
+}
+
+.butCon {
+  height: 56px;
+  width: 100vw;
+  position: absolute;
+  bottom: 0px;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.addSiteEntryInput {
+  height: 41px;
+  width: 98%;
+  margin-top: 10.5px;
+  background-color: #f5f7fb;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.siteLabel {
+  margin-top: 19.5px;
+  color: #949ca5;
+}
+
+.addSiteBut1 {
+  width: 50%;
+  margin-right: 2px;
+  background-color: #0e85ff;
+  color: white;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  border:none
+}
+.addSiteBut2 {
+  width: 50%;
+  margin-right: 2px;
+  background-color: #0e85ff;
+  color: white;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  border:none
+}
+
+.dropLabel {
+  margin-top: 19.5px;
+  color: #949ca5;
+}
+
+.urlLabel {
+  color: #949ca5;
+}
+
+.userLabel {
+  margin-top: 19.5px;
+  color: #949ca5;
+}
+
+.passwordLabel {
+  margin-top: 19.5px;
+  color: #949ca5;
+}
+
+.notesLabel {
+  margin-top: 19.5px;
+  color: #949ca5;
+}
+
+.dropdown {
+  height: 41px;
+  margin-top: 10.5px;
+  border: 1px solid #d7d7d7;
+  background-color: #f5f7fb;
+  font-size: 16px;
+}
+
+.addSiteEntryInput1 {
+  height: 61px;
+  width: 98%;
+  margin-top: 10.5px;
+  background-color: #f5f7fb;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+
+@media screen and (min-width:900px){
+  .addSiteCon {
+    position:fixed;
+    z-index: 1;
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+  
+  }
+
+  .addSiteCon1{
+    display:none
+  }
+  
+}

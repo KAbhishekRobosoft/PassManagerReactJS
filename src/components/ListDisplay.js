@@ -8,11 +8,19 @@ function ListDisplay({ ele }) {
   return (
     <div className="listDisplayCon">
       <div className="listImg">
-        <img src={youtube} alt={ele.name} />
-        <div className="listDispName">
-          <p className="listText">{ele.name}</p>
-        
+        <div className="lockerImg">
+          <img src={youtube} alt="youtube" />
         </div>
+        <div className="lockerDesc">
+          <p className="lockerName">{ele.name}</p>
+          <div className="copyCon">
+            <span><FontAwesomeIcon color="#0E85FF" icon={faCopy} /></span>
+            <p className="copyText">Copy Password</p>
+          </div>
+        </div>
+      </div>
+      <div className="urlCon">
+          <p className="urlText">{ele.url}</p>
       </div>
     </div>
   );

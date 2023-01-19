@@ -3,7 +3,9 @@
   border: 1px solid transparent;
   height: 104px;
   display: flex;
-  justify-content: center;
+  margin-top: 10px;
+  align-items: center;
+  flex-direction: column;
   border-radius: 12.6px;
   background-color: white;
   box-shadow: 1px 1px 5px 1px grey;
@@ -13,26 +15,73 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
-  height:65.7px;
-  width:90%
+  width: 100%;
+  height: 65.7px;
+  background-color: white;
+  border-top-left-radius: 12.6px;
+  border-top-right-radius: 12.6px;
 }
 
-.textCopy{
-    display: flex;
-    align-items: center;
-    
+.lockerDesc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  align-self: flex-end;
 }
 
-.listDispName{
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    border:1px solid black;
-    width:40%
+.copyCon {
+  display: flex;
+  justify-content: center;
+  height: 10px;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
-.listText{
-    border:1px solid black;
+.copyText {
+  margin-left: 5px;
+  color: #0e85ff;
+  font-size: 11.34px;
+  line-height: 15px;
+  font-family: "Open Sans Regular", sans-serif;
 }
 
+.lockerName {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Open Sans SemiBold", sans-serif;
+  font-weight: bold;
+  color: #0e85ff;
+}
+
+.lockerImg {
+  margin-left: 18px;
+}
+
+.urlCon {
+  height: 37.8px;
+  width: 100%;
+  background-color: #fdfdfd;
+  border-bottom-left-radius: 12.6px;
+  border-bottom-right-radius: 12.6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.urlText {
+  font-family: "Open Sans Regular", sans-serif;
+  font-size: 14.4px;
+  line-height: 19px;
+}
+
+@media screen and (min-width:900px){
+  .listDisplayCon {
+    width: 30%;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  
+}

@@ -8,16 +8,16 @@ import Signin from '../screens/Signin'
 import SignUp from '../screens/SignUp'
 
 function Homepage() {
-  const Navigate = useNavigate();
-  const formik = useFormik({
-    initialValues: {
-      Number: "",
-      Mpin: "",
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  // const Navigate = useNavigate();
+  // const formik = useFormik({
+  //   initialValues: {
+  //     Number: "",
+  //     Mpin: "",
+  //   },
+  //   onSubmit: (values) => {
+  //     alert(JSON.stringify(values, null, 2));
+  //   },
+  // });
   return (
     <div className="homeCon">
       <div className="authCon">
