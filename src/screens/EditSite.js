@@ -1,51 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import "../css/Addsite.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import close from "../images/close_btn.png";
-import { addData } from "../redux/CrudSice";
-import { useDispatch, useSelector } from "react-redux";
-import { picLinks } from "../utils/Hardcoded";
+import { updateData } from "../redux/CrudSice";
+import { useDispatch } from "react-redux";
 
-function Addsite({ setModal }) {
+function Editsite({ setModal1, data1 }) {
+  const [edit, setEdit] = useState(true);
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.addDetails.userData);
-  const initialValues = {
-    url: "",
-    siteName: "",
-    sector: "",
-    password: "",
-    userName: "",
-    notes: "",
-  };
-
   const formik = useFormik({
-    initialValues: { initialValues },
+    initialValues: {
+      url: data1.url,
+      siteName: data1.name,
+      sector: data1.sector,
+      userName: data1.userName,
+      password: data1.password,
+      notes: data1.notes,
+    },
     onSubmit: (values) => {
-      values["id"] = data.length + 1;
-      if (picLinks.hasOwnProperty(values.siteName)) {
-        dispatch(addData(values));
-        setModal(false);
-      } else {
-        alert("Please enter proper sitename");
-      }
+      values["id"] = data1.id;
+      dispatch(updateData(values));
+      setModal1(false)
     },
   });
   return (
     <div className="addSiteCon">
       {/* Small screen design */}
       <div className="addSiteCon1">
-        <div className="addSiteNav">
+        <div className="addSiteNav1">
           <FontAwesomeIcon
             onClick={() => {
-              setModal(false);
+              setModal1(false);
             }}
             className="backIcon"
             color="white"
             icon={faArrowLeftLong}
           />
-          <p className="addText">Add Site</p>
+          <p className="addText1">Site Details</p>
+          <p
+            onClick={() => {
+              setEdit(false);
+            }}
+            style={{
+              marginRight: "50px",
+              color: "white",
+              fontSize: "18px",
+              fontfamily: "Open Sans, sans-serif",
+              fontfamily: "Roboto sans-serif",
+              cursor: "pointer",
+            }}
+          >
+            Edit
+          </p>
         </div>
         <div className="addSiteEntry">
           <form className="addSiteForm" onSubmit={formik.handleSubmit}>
@@ -54,10 +62,12 @@ function Addsite({ setModal }) {
                 URL
               </label>
               <input
-                name="url"
                 onChange={formik.handleChange}
+                name="url"
                 className="addSiteEntryInput"
                 type="text"
+                disabled={edit}
+                defaultValue={data1.url}
                 required
               />
 
@@ -65,10 +75,12 @@ function Addsite({ setModal }) {
                 Site Name
               </label>
               <input
-                name="siteName"
                 onChange={formik.handleChange}
+                name="siteName"
                 className="addSiteEntryInput"
                 type="text"
+                disabled={edit}
+                defaultValue={data1.siteName}
                 required
               />
 
@@ -77,23 +89,26 @@ function Addsite({ setModal }) {
               </label>
               <select
                 onChange={formik.handleChange}
+                defaultValue={data1.sector}
+                required
                 className="dropdown"
                 name="sector"
                 id="media"
               >
-                <option selected>Select Option</option>
-                <option value="Social Media">Social Media</option>
-                <option value="Website">Website</option>
+                <option name="sector">Social media</option>
+                <option name="sector">Website</option>
               </select>
 
               <label className="userLabel" for="userName">
                 User Name
               </label>
               <input
-                name="userName"
                 onChange={formik.handleChange}
+                name="userName"
                 className="addSiteEntryInput"
+                defaultValue={data1.userName}
                 type="text"
+                disabled={edit}
                 required
               />
 
@@ -101,10 +116,12 @@ function Addsite({ setModal }) {
                 Site Password
               </label>
               <input
-                name="password"
                 onChange={formik.handleChange}
+                name="password"
                 className="addSiteEntryInput"
                 type="password"
+                defaultValue={data1.password}
+                disabled={edit}
                 required
               />
 
@@ -114,40 +131,33 @@ function Addsite({ setModal }) {
               <textarea
                 onChange={formik.handleChange}
                 name="notes"
+                defaultValue={data1.notes}
+                disabled={edit}
                 className="addSiteEntryInput1"
               />
             </div>
             <div className="butCon">
-              <button
-                type="reset"
-                onClick={(e) => {
-                  formik.resetForm({ initialValues });
-                }}
-                className="addSiteBut1"
-              >
-                Reset
-              </button>
-              <button type="submit" className="addSiteBut2">
-                Save
+              <button type="submit" className="addSiteBut9">
+                Update
               </button>
             </div>
           </form>
         </div>
       </div>
 
-      {/* Big screen design */}
+      {/* Bigger screen design */}
       <div className="addSiteCon2">
         <div className="siteAdder">
           <div className="closeBtn">
             <img
               onClick={() => {
-                setModal(false);
+                setModal1(false);
               }}
               src={close}
               alt="close_btn"
             />
           </div>
-          <p className="siteAdderText">Add Sites</p>
+          <p className="siteAdderText">Edit</p>
           <div className="sitesAddingCon">
             <form onSubmit={formik.handleSubmit}>
               <div className="addSiteFormInput">
@@ -155,10 +165,11 @@ function Addsite({ setModal }) {
                   URL
                 </label>
                 <input
-                  onChange={formik.handleChange}
                   name="url"
+                  onChange={formik.handleChange}
                   className="input5"
                   type="text"
+                  defaultValue={data1.url}
                   required
                 />
                 <div className="formRow">
@@ -174,8 +185,9 @@ function Addsite({ setModal }) {
                     </label>
                     <input
                       name="siteName"
-                      className="input6"
                       onChange={formik.handleChange}
+                      className="input6"
+                      defaultValue={data1.siteName}
                       type="text"
                       required
                     />
@@ -192,14 +204,17 @@ function Addsite({ setModal }) {
                     </label>
                     <select
                       onChange={formik.handleChange}
+                      defaultValue={data1.sector}
                       className="dropdown1"
                       name="sector"
-                      required
                       id="media"
                     >
-                      <option selected>Select Option</option>
-                      <option value="Social Media">Social media</option>
-                      <option value="Website">Website</option>
+                      <option name="sector" value="Social Media">
+                        Social media
+                      </option>
+                      <option name="sector" value="Social Media">
+                        Website
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -218,6 +233,7 @@ function Addsite({ setModal }) {
                     <input
                       name="userName"
                       onChange={formik.handleChange}
+                      defaultValue={data1.userName}
                       className="input6"
                       type="text"
                       required
@@ -237,6 +253,7 @@ function Addsite({ setModal }) {
                       name="password"
                       onChange={formik.handleChange}
                       className="input7"
+                      defaultValue={data1.password}
                       type="password"
                       required
                     />
@@ -246,14 +263,16 @@ function Addsite({ setModal }) {
                   Notes
                 </label>
                 <textarea
-                  onChange={formik.handleChange}
                   name="notes"
+                  defaultValue={data1.notes}
+                  onChange={formik.handleChange}
                   className="addSiteEntryInput1"
                 />
               </div>
               <div className="butCon1">
-                <button className="addSiteBut3">Reset</button>
-                <button className="addSiteBut4">Save</button>
+                <button type="submit" className="addSiteBut4">
+                  Update
+                </button>
               </div>
             </form>
           </div>
@@ -263,4 +282,4 @@ function Addsite({ setModal }) {
   );
 }
 
-export default Addsite;
+export default Editsite;

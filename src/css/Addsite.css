@@ -12,6 +12,23 @@
   align-items: center;
 }
 
+.addSiteNav1 {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  background-color: #0e85ff;
+  justify-content: space-between;
+  box-shadow: 0px 1px 5px 1px grey;
+  align-items: center;
+}
+
+.addText1 {
+  color: white;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
 .backIcon {
   height: 20px;
   width: 20px;
@@ -27,7 +44,7 @@
 }
 
 .addSiteEntry {
-  height: calc(100vh - 56px);
+  height: calc(100vh - 72px);
   width: 100%;
 }
 
@@ -49,11 +66,10 @@
 .butCon {
   height: 56px;
   width: 100vw;
-  position: absolute;
-  bottom: 0px;
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  margin-top: 200px;
 }
 
 .addSiteEntryInput {
@@ -71,6 +87,17 @@
   color: #949ca5;
 }
 
+.addSiteBut9 {
+  width: 100%;
+  margin-right: 2px;
+  background-color: #0e85ff;
+  color: white;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  border: none;
+}
+
 .addSiteBut1 {
   width: 50%;
   margin-right: 2px;
@@ -79,7 +106,7 @@
   font-size: 20px;
   font-family: "Open Sans", sans-serif;
   font-family: "Roboto", sans-serif;
-  border:none
+  border: none;
 }
 .addSiteBut2 {
   width: 50%;
@@ -89,7 +116,7 @@
   font-size: 20px;
   font-family: "Open Sans", sans-serif;
   font-family: "Roboto", sans-serif;
-  border:none
+  border: none;
 }
 
 .dropLabel {
@@ -124,6 +151,10 @@
   font-size: 16px;
 }
 
+.addSiteCon2 {
+  display: none;
+}
+
 .addSiteEntryInput1 {
   height: 61px;
   width: 98%;
@@ -134,17 +165,153 @@
   font-size: 16px;
 }
 
-
-@media screen and (min-width:900px){
+@media screen and (min-width: 900px) {
   .addSiteCon {
-    position:fixed;
+    position: fixed;
     z-index: 1;
-    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
-  
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   }
 
-  .addSiteCon1{
-    display:none
+  .addSiteCon1 {
+    display: none;
   }
-  
+
+  .addSiteCon2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  .siteAdder {
+    border: 1px solid white;
+    width: 55%;
+    height: 598px;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+  }
+
+  .sitesAddingCon {
+    width: 90%;
+    margin: 0px auto;
+    height: 84%;
+  }
+
+  .siteAdderText {
+    margin-top: 24.5px;
+    margin-left: 30.5px;
+    font-size: 30px;
+    line-height: 41px;
+    font-family: "Open Sans SemiBold", sans-serif;
+  }
+
+  .addSiteFormInput {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input5 {
+    margin-top: 10.5px;
+    height: 36px;
+    font-size: 18px;
+    background-color: #f5f7fb;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .input5Label {
+    font-family: "Open Sans Regular", sans-serif;
+    color: #949ca5;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .input6 {
+    margin-top: 10.5px;
+    height: 36px;
+    font-size: 18px;
+    background-color: #f5f7fb;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 90%;
+  }
+
+  .input6Label {
+    font-family: "Open Sans Regular", sans-serif;
+    color: #949ca5;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 26px;
+  }
+
+  .formRow {
+    display: flex;
+  }
+
+  .dropdown1 {
+    border: 1px solid transparent;
+    height: 40px;
+    margin-top: 10.5px;
+    font-size: 18px;
+    line-height: 27px;
+    background-color: #f5f7fb;
+  }
+
+  .input7Label {
+    font-family: "Open Sans Regular", sans-serif;
+    color: #949ca5;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 26px;
+  }
+
+  .input7 {
+    margin-top: 10.5px;
+    height: 36px;
+    background-color: #f5f7fb;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 97%;
+  }
+
+  .butCon1 {
+    height: 56px;
+    width: 100vw;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 39.5px;
+  }
+
+  .addSiteBut3 {
+    width: 20%;
+    margin-right: 2px;
+    background-color: white;
+    color: #0e85ff;
+    margin-right: 19.5px;
+    font-size: 20px;
+    border-radius: 4px;
+    font-family: "Open Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
+    border: 2px solid #87c3ff;
+  }
+  .addSiteBut4 {
+    width: 20%;
+    background-color: #0e85ff;
+    color: white;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
+    border: none;
+  }
 }

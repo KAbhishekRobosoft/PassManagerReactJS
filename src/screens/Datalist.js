@@ -14,162 +14,117 @@ import profile1 from "../images/profile.png";
 import search1 from "../images/search.png";
 import add from "../images/add_btn.png";
 import Addsite from "./Addsite";
+import EditSite from "./EditSite";
+import { useDispatch, useSelector } from "react-redux";
+import { filterData } from "../redux/CrudSice";
+import { filterCategory } from "../redux/CrudSice";
 
 function Datalist() {
   const [searchOn, setSearchOn] = useState(false);
-  const [modal,setModal]= useState(false)
+  const [modal, setModal] = useState(false);
+  const [modal1, setModal1] = useState(false);
+  const [data1, setData1] = useState({});
+  const data = useSelector((state) => state.addDetails.userData);
+  const dispatch = useDispatch();
 
-  const data = [
-    {
-      id: 1,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 2,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 3,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 4,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 5,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 6,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 7,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 8,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 9,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 10,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 11,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-    {
-      id: 12,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },  {
-      id: 13,
-      src: "../images/youtube.png",
-      name: "Facebook",
-      url: "www.facebook.com",
-    },
-
-
-  ];
+  console.log(data);
   return (
     <div className="listCon">
       {modal && <Addsite setModal={setModal} />}
-      {!modal && <div className="listMainCon">
-        <div className="navListDisp">
-          <div className="headerStyle">
-            <img className="burgerImg" src={burger} alt="burger" />
-            <p className="listHeadText">PASS MANAGER</p>
-          </div>
-          <div className="iconAcc">
-            <img
-              onClick={() => {
-                setSearchOn(true);
-              }}
-              className="searchImg"
-              src={search}
-              alt="search"
-            />
-            <img className="syncImg" src={sync} alt="sync" />
-            <img className="profileImg" src={profile} alt="sync" />
-          </div>
-        </div>
-        {!searchOn && (
-          <div className="lockerSites">
-            <div>
-              <p className="sitesText">Sites</p>
-              <div className="siteUnder"></div>
+      {modal1 && <EditSite data1={data1} setModal1={setModal1} />}
+
+      {!modal && !modal1 && (
+        <div className="listMainCon">
+          <div className="navListDisp">
+            <div className="headerStyle">
+              <img className="burgerImg" src={burger} alt="burger" />
+              <p className="listHeadText">PASS MANAGER</p>
             </div>
-            <div className="optionCon">
-              <select className="dropdown" name="media" id="media">
-                <option value="Select Option" selected>
-                  Select Option
-                </option>
-                <option value="Social Media">Social media</option>
-                <option value="Social Media">Website</option>
-              </select>
-              <div className="lengthTextCon">
-                <p className="lengthText">07</p>
+            <div className="iconAcc">
+              <img
+                onClick={() => {
+                  setSearchOn(true);
+                }}
+                className="searchImg"
+                src={search}
+                alt="search"
+              />
+              <img className="syncImg" src={sync} alt="sync" />
+              <img className="profileImg" src={profile} alt="sync" />
+            </div>
+          </div>
+          {!searchOn && (
+            <div className="lockerSites">
+              <div>
+                <p className="sitesText">Sites</p>
+                <div className="siteUnder"></div>
+              </div>
+              <div className="optionCon">
+                <select
+                  onChange={(val) => {
+                    dispatch(filterCategory(val.target.value));
+                  }}
+                  className="dropdown"
+                  name="media"
+                  id="media"
+                >
+                  <option value="All" selected>
+                    All
+                  </option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Website">Website</option>
+                </select>
+                <div className="lengthTextCon">
+                  <p className="lengthText">{data.length}</p>
+                </div>
               </div>
             </div>
+          )}
+          {searchOn && (
+            <div className="searchBar">
+              <input
+                className="searchBarText"
+                type="text"
+                onChange={(val) => {
+                  dispatch(filterData(val.target.value));
+                }}
+                placeholder="Type keywords to search"
+              />
+              <span
+                onClick={() => {
+                  setSearchOn(false);
+                }}
+                className="rightIcon"
+              >
+                <FontAwesomeIcon className="iconSty" icon={faArrowRight} />
+              </span>
+            </div>
+          )}
+          <div className="listDisplay">
+            {data.length > 0
+              ? data.map((ele) => {
+                  return (
+                    <ListDisplay
+                      setData1={setData1}
+                      setModal1={setModal1}
+                      key={ele.id}
+                      ele={ele}
+                    />
+                  );
+                })
+              : null}
           </div>
-        )}
-        {searchOn && (
-          <div className="searchBar">
-            <input
-              className="searchBarText"
-              type="text"
-              placeholder="Type keywords to search"
-            />
-            <span
-              onClick={() => {
-                setSearchOn(false);
-              }}
-              className="rightIcon"
-            >
-              <FontAwesomeIcon className="iconSty" icon={faArrowRight} />
-            </span>
-          </div>
-        )}
-        <div className="listDisplay">
-          {data.length > 0
-            ? data.map((ele) => {
-                return <ListDisplay key={ele.id} ele={ele} />;
-              })
-            : null}
+          <img
+            onClick={() => {
+              setModal(true);
+            }}
+            className="addBtn0"
+            src={add}
+            alt="buttonAdd"
+          />
         </div>
-        <img onClick={()=>{
-          setModal(true)
-        }} className="addBtn0" src={add} alt="buttonAdd" />
-      </div>}
+      )}
+
       <div className="listMainCon1">
         <div className="sideBar">
           <div className="sideIcon">
@@ -195,14 +150,14 @@ function Datalist() {
               <p className="siteText1">Sites</p>
               <div className="optionCon">
                 <select className="dropdown" name="media" id="media">
-                  <option value="Select Option" selected>
-                    Select Option
+                  <option value="All" selected>
+                    All
                   </option>
-                  <option value="Social Media">Social media</option>
-                  <option value="Social Media">Website</option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Website">Website</option>
                 </select>
                 <div className="lengthTextCon">
-                  <p className="lengthText">07</p>
+                  <p className="lengthText">{data.length}</p>
                 </div>
               </div>
             </div>
@@ -212,16 +167,33 @@ function Datalist() {
                   className="searchText1"
                   type="text"
                   placeholder="Search"
+                  onChange={(val) => {
+                    dispatch(filterData(val.target.value));
+                  }}
                 />
                 <img className="searchIcon1" src={search1} alt="searchicon" />
               </div>
-              <img className="addBtn1" src={add} alt="addBtn" />
+              <img
+                onClick={() => {
+                  setModal(true);
+                }}
+                className="addBtn1"
+                src={add}
+                alt="addBtn"
+              />
             </div>
           </div>
           <div className="listDisplay1">
             {data.length > 0
               ? data.map((ele) => {
-                  return <ListDisplay key={ele.id} ele={ele} />;
+                  return (
+                    <ListDisplay
+                      setData1={setData1}
+                      setModal1={setModal1}
+                      key={ele.id}
+                      ele={ele}
+                    />
+                  );
                 })
               : null}
           </div>

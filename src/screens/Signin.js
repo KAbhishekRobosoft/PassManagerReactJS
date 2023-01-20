@@ -2,10 +2,12 @@ import React, { useRef } from "react";
 import { useFormik } from "formik";
 import "../css/Signin.css";
 import eye from "../images/eye_on.png";
-import { useNavigate } from "react-router-dom";
+import { login } from "../redux/AuthSlice";
+import { useDispatch } from "react-redux";
+import { v4 as uuid } from "uuid";
 
 function Signin() {
-  const Navigate= useNavigate()
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -13,8 +15,7 @@ function Signin() {
       Mpin: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      Navigate('/Datalist')
+      dispatch(login(values));
     },
   });
   return (

@@ -3,9 +3,15 @@ import { useFormik } from "formik";
 import "../css/SignUp.css";
 import eye from "../images/eye_on.png";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../redux/AuthSlice";
+import { v4 as uuid } from "uuid";
 
 function SignUp() {
-  const Navigate= useNavigate()
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.authSite.userData);
+  const Navigate = useNavigate();
+  console.log(data);
   const formik = useFormik({
     initialValues: {
       Number: "",
@@ -13,7 +19,11 @@ function SignUp() {
       confirmMpin: "",
     },
     onSubmit: (values) => {
-      Navigate('/Signin')
+      values["id"] = uuid();
+      console.log(values);
+      const resp= dispatch(register(values));
+      console.log(resp)
+      // Navigate("/Signin");
     },
   });
   return (
