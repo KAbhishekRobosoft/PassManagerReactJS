@@ -51,6 +51,7 @@
   max-width: 35px;
   font-family: "Open Sans Bold", sans-serif;
   color: white;
+  
   font-weight: bold;
   margin-left: 20px;
 }
@@ -156,6 +157,7 @@
 .listDisplay {
   min-height: calc(100vh - 133px);
   background-color: #f4f4f4;
+  
   margin-top: 20.2px;
   display: flex;
   flex-direction: column;
@@ -173,13 +175,17 @@
   display: none;
 }
 
-.searchImg{
+.searchImg {
   cursor: pointer;
 }
 
 @media screen and (min-width: 700px) {
   .iconAcc {
     width: 20%;
+  }
+
+  .iconDes {
+    font-size: 18px;
   }
 }
 
@@ -196,6 +202,53 @@
     display: flex;
     height: 100vh;
     width: 100vw;
+  }
+
+  .toastCon {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    animation: toast 4s linear;
+  }
+
+  @keyframes toast {
+    50% {
+      opacity: 0.6;
+    }
+
+    100% {
+      opacity: 0.2;
+    }
+  }
+
+  .toastText {
+    text-align: center;
+    height: 44px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #a8e9c4;
+    border-left: 1px solid #a8e9c4;
+    border-top: 1px solid #a8e9c4;
+    background-color: #cbf3dc;
+    font-family: "Lato", sans-serif;
+    color: #2ecc71;
+  }
+
+  .toastIcon {
+    border-top: 1px solid #a8e9c4;
+    border-right: 1px solid #a8e9c4;
+    border-bottom: 1px solid #a8e9c4;
+    height: 44px;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #cbf3dc;
   }
 
   .sideBar {

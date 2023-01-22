@@ -1,9 +1,9 @@
 import React from "react";
 import "../css/ListDisplay.css";
-import youtube from "../images/Bitmap.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import { picLinks } from "../utils/Hardcoded";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function ListDisplay({ ele, setModal1, setData1 }) {
   return (
@@ -20,12 +20,17 @@ function ListDisplay({ ele, setModal1, setData1 }) {
         </div>
         <div className="lockerDesc">
           <p className="lockerName">{ele.siteName}</p>
-          <div className="copyCon">
-            <span>
-              <FontAwesomeIcon color="#0E85FF" icon={faCopy} />
-            </span>
-            <p className="copyText">Copy Password</p>
-          </div>
+          <CopyToClipboard text={ele.password}>
+            <div style={{cursor:"pointer"}} onClick={()=>{
+              alert("Password copied")
+            }} className="copyCon">
+              <span>
+                <FontAwesomeIcon color="#0E85FF" icon={faCopy} />
+              </span>
+
+              <p className="copyText">Copy Password</p>
+            </div>
+          </CopyToClipboard>
         </div>
       </div>
       <div className="urlCon">

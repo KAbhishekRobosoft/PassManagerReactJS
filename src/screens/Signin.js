@@ -4,7 +4,6 @@ import "../css/Signin.css";
 import eye from "../images/eye_on.png";
 import { login } from "../redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuid } from "uuid";
 
 function Signin() {
   const dispatch = useDispatch();

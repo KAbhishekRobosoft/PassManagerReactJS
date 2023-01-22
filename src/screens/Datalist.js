@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../css/Datalist.css";
 import burger from "../images/burger_Menu.png";
 import sync from "../images/sync1_icn.png";
 import profile from "../images/profile1.png";
 import search from "../images/search1.png";
 import ListDisplay from "../components/ListDisplay";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import home from "../images/home_icn.png";
 import logo from "../images/logo_name.png";
@@ -22,16 +22,18 @@ import { logout } from "../redux/AuthSlice";
 
 function Datalist() {
   const [searchOn, setSearchOn] = useState(false);
+  const toastRef = useRef(null);
   const [modal, setModal] = useState(false);
   const [modal1, setModal1] = useState(false);
   const [data1, setData1] = useState({});
+  const [toast, setToast] = useState(true);
   const userData = useSelector((state) => state.addDetails.userData);
   const userId = useSelector((state) => state.authSite.userId);
   const data = userData.filter((ele) => ele.userId === userId);
   const dispatch = useDispatch();
   return (
     <div className="listCon">
-      {modal && <Addsite setModal={setModal} />}
+      {modal && <Addsite toastRef={toastRef} setModal={setModal} />}
       {modal1 && <EditSite data1={data1} setModal1={setModal1} />}
 
       {!modal && !modal1 && (
@@ -148,6 +150,25 @@ function Datalist() {
             <div className="navLogo">
               <img className="navLockerimg" src={logo} alt="Logo" />
             </div>
+            {toast && (
+              <div ref={toastRef} className="toastCon">
+                <div className="toastText">
+                  <p>Site Added Successfully</p>
+                </div>
+                <div className="toastIcon">
+                  <FontAwesomeIcon
+                    className="iconDes"
+                    fontSize={22}
+                    fontWeight="bold"
+                    color="#63d995"
+                    icon={faXmark}
+                    onClick={() => {
+                      setToast(false);
+                    }}
+                  />
+                </div>
+              </div>
+            )}
             <div className="navIcons">
               <img src={sync1} alt="sync1" />
               <img

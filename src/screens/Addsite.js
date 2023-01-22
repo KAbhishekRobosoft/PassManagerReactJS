@@ -8,7 +8,7 @@ import { addData } from "../redux/CrudSice";
 import { useDispatch, useSelector } from "react-redux";
 import { picLinks } from "../utils/Hardcoded";
 
-function Addsite({ setModal }) {
+function Addsite({ setModal,toastRef }) {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.addDetails.userData);
   const userId = useSelector((state) => state.authSite.userId);
@@ -24,12 +24,15 @@ function Addsite({ setModal }) {
   const formik = useFormik({
     initialValues: { initialValues },
     onSubmit: (values) => {
-      console.log(values);
       values["id"] = data.length + 1;
       values["userId"] = userId;
       if (picLinks.hasOwnProperty(values.siteName)) {
         dispatch(addData(values));
         setModal(false);
+        toastRef.current.style.display="flex"
+        setTimeout(()=>{
+          toastRef.current.style.display="none"
+        },4000)
       } else {
         alert("Please enter proper sitename");
       }
