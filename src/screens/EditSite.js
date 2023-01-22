@@ -8,21 +8,23 @@ import { updateData } from "../redux/CrudSice";
 import { useDispatch } from "react-redux";
 
 function Editsite({ setModal1, data1 }) {
+  console.log(data1);
   const [edit, setEdit] = useState(true);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       url: data1.url,
-      siteName: data1.name,
+      siteName: data1.siteName,
       sector: data1.sector,
       userName: data1.userName,
       password: data1.password,
       notes: data1.notes,
     },
     onSubmit: (values) => {
+      console.log(values)
       values["id"] = data1.id;
       dispatch(updateData(values));
-      setModal1(false)
+      setModal1(false);
     },
   });
   return (
@@ -95,8 +97,17 @@ function Editsite({ setModal1, data1 }) {
                 name="sector"
                 id="media"
               >
-                <option name="sector">Social media</option>
-                <option name="sector">Website</option>
+                <option value={data1.sector} name="sector">
+                  {data1.sector}
+                </option>
+                <option
+                  value={
+                    data1.sector === "Social Media" ? "Website" : "Social Media"
+                  }
+                  name="sector"
+                >
+                  {data1.sector === "Social Media" ? "Website" : "Social Media"}
+                </option>
               </select>
 
               <label className="userLabel" for="userName">
@@ -204,16 +215,25 @@ function Editsite({ setModal1, data1 }) {
                     </label>
                     <select
                       onChange={formik.handleChange}
-                      defaultValue={data1.sector}
-                      className="dropdown1"
+                      required
+                      className="dropdown"
                       name="sector"
                       id="media"
                     >
-                      <option name="sector" value="Social Media">
-                        Social media
+                      <option value={data1.sector} name="sector">
+                        {data1.sector}
                       </option>
-                      <option name="sector" value="Social Media">
-                        Website
+                      <option
+                        value={
+                          data1.sector === "Social Media"
+                            ? "Website"
+                            : "Social Media"
+                        }
+                        name="sector"
+                      >
+                        {data1.sector === "Social Media"
+                          ? "Website"
+                          : "Social Media"}
                       </option>
                     </select>
                   </div>

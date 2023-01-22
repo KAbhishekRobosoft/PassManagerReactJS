@@ -31,7 +31,7 @@ const addSiteReducer = createSlice({
         if (ele.id === action.payload.id) {
           return {
             ...ele,
-            sector: action.payload.dropdown,
+            sector: action.payload.sector,
             notes: action.payload.notes,
             password: action.payload.password,
             siteName: action.payload.siteName,
@@ -61,8 +61,8 @@ const addSiteReducer = createSlice({
     //Category Functionality
     filterCategory: (state, action) => {
       if (action.payload === "All") state.userData = state.userTemp;
-      else{
-        console.log(action.payload)
+      else {
+        console.log(action.payload);
         state.userData = state.userTemp.filter(
           (ele) => ele.sector === action.payload
         );

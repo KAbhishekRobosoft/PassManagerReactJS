@@ -3,19 +3,30 @@ import { useFormik } from "formik";
 import "../css/Signin.css";
 import eye from "../images/eye_on.png";
 import { login } from "../redux/AuthSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 
 function Signin() {
   const dispatch = useDispatch();
-
+  let flag = 0;
+  const user = useSelector((state) => state.authSite.userData);
   const formik = useFormik({
     initialValues: {
       Number: "",
       Mpin: "",
     },
     onSubmit: (values) => {
-      dispatch(login(values));
+      user.map((ele) => {
+        if (ele.Number.toString() === values.Number) {
+          console.log(ele.Number.toString());
+          alert("Signin Successfull");
+          dispatch(login({ id: ele.id, mPin: values.Mpin }));
+          flag = 1;
+        }
+      });
+      if (flag === 0) {
+        alert("User doesn't exist");
+      }
     },
   });
   return (

@@ -18,16 +18,17 @@ import EditSite from "./EditSite";
 import { useDispatch, useSelector } from "react-redux";
 import { filterData } from "../redux/CrudSice";
 import { filterCategory } from "../redux/CrudSice";
+import { logout } from "../redux/AuthSlice";
 
 function Datalist() {
   const [searchOn, setSearchOn] = useState(false);
   const [modal, setModal] = useState(false);
   const [modal1, setModal1] = useState(false);
   const [data1, setData1] = useState({});
-  const data = useSelector((state) => state.addDetails.userData);
+  const userData = useSelector((state) => state.addDetails.userData);
+  const userId = useSelector((state) => state.authSite.userId);
+  const data = userData.filter((ele) => ele.userId === userId);
   const dispatch = useDispatch();
-
-  console.log(data);
   return (
     <div className="listCon">
       {modal && <Addsite setModal={setModal} />}
@@ -50,7 +51,14 @@ function Datalist() {
                 alt="search"
               />
               <img className="syncImg" src={sync} alt="sync" />
-              <img className="profileImg" src={profile} alt="sync" />
+              <img
+                onClick={() => {
+                  dispatch(logout());
+                }}
+                className="profileImg"
+                src={profile}
+                alt="sync"
+              />
             </div>
           </div>
           {!searchOn && (
@@ -142,14 +150,28 @@ function Datalist() {
             </div>
             <div className="navIcons">
               <img src={sync1} alt="sync1" />
-              <img className="profile1" src={profile1} alt="profile1" />
+              <img
+                onClick={() => {
+                  dispatch(logout());
+                }}
+                className="profile1"
+                src={profile1}
+                alt="profile1"
+              />
             </div>
           </div>
           <div className="lockerSites1">
             <div className="sitesDesc1">
               <p className="siteText1">Sites</p>
               <div className="optionCon">
-                <select className="dropdown" name="media" id="media">
+                <select
+                  onChange={(val) => {
+                    dispatch(filterCategory(val.target.value));
+                  }}
+                  className="dropdown"
+                  name="media"
+                  id="media"
+                >
                   <option value="All" selected>
                     All
                   </option>

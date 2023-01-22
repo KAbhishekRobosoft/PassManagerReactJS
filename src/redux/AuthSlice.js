@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   mPin: null,
+  userId: null,
   userData: [],
   userTemp: [],
 };
@@ -18,46 +19,22 @@ const authenticateSite = createSlice({
     },
 
     login: (state, action) => {
-      return {
-        ...state,
-        mPin: action.payload.Mpin,
-      };
-    },
-
-    filterUser: (state, action) => {
-      state.userData = state.userTemp.filter((ele) =>
-        ele.siteName.toLowerCase().includes(action.payload.toLowerCase())
-      );
+      state.mPin = action.payload.mPin;
+      state.userId = action.payload.id;
     },
 
     logout: (state) => {
-      return {
-        ...state,
-        mPin: null,
-      };
+      state.mPin = null;
+      state.userId = null;
     },
 
     register: (state, action) => {
-      if (state.userData.length > 0) {
-        if (
-          state.userData.filter((ele) => ele.Number === action.payload.Number)
-            .length > 0
-        ) {
-          return false;
-        } else {
-          state.userData.push(action.payload);
-          state.userTemp.push(action.payload);
-          return true;
-        }
-      } else {
-        state.userData.push(action.payload);
-        state.userTemp.push(action.payload);
-        return true;
-      }
+      state.userData.push(action.payload);
+      state.userTemp.push(action.payload);
     },
   },
 });
 
-export const { retrieveToken, login, logout, register, filterUser } =
+export const { retrieveToken, login, logout, register } =
   authenticateSite.actions;
 export const reducer1 = authenticateSite.reducer;

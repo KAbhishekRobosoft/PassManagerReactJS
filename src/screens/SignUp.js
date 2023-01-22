@@ -9,9 +9,8 @@ import { v4 as uuid } from "uuid";
 
 function SignUp() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.authSite.userData);
   const Navigate = useNavigate();
-  console.log(data);
+  const user = useSelector((state) => state.authSite.userData);
   const formik = useFormik({
     initialValues: {
       Number: "",
@@ -20,10 +19,19 @@ function SignUp() {
     },
     onSubmit: (values) => {
       values["id"] = uuid();
-      console.log(values);
-      const resp= dispatch(register(values));
-      console.log(resp)
-      // Navigate("/Signin");
+      if (user.length > 0) {
+        if (user.filter((ele) => ele.Number.toString() === values.Number).length > 0) {
+          alert("User already exists");
+        } else {
+          dispatch(register(values));
+          alert("User added");
+          Navigate("/");
+        }
+      } else {
+        dispatch(register(values));
+        alert("User added");
+        Navigate("/");
+      }
     },
   });
   return (

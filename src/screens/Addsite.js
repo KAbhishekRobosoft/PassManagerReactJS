@@ -11,6 +11,7 @@ import { picLinks } from "../utils/Hardcoded";
 function Addsite({ setModal }) {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.addDetails.userData);
+  const userId = useSelector((state) => state.authSite.userId);
   const initialValues = {
     url: "",
     siteName: "",
@@ -23,7 +24,9 @@ function Addsite({ setModal }) {
   const formik = useFormik({
     initialValues: { initialValues },
     onSubmit: (values) => {
+      console.log(values);
       values["id"] = data.length + 1;
+      values["userId"] = userId;
       if (picLinks.hasOwnProperty(values.siteName)) {
         dispatch(addData(values));
         setModal(false);
