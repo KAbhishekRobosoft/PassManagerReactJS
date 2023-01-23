@@ -8,8 +8,9 @@ import { addData } from "../redux/CrudSice";
 import { useDispatch, useSelector } from "react-redux";
 import { picLinks } from "../utils/Hardcoded";
 
-function Addsite({ setModal,toastRef }) {
+function Addsite({ setModal, toastRef, setToast }) {
   const dispatch = useDispatch();
+  setToast(true);
   const data = useSelector((state) => state.addDetails.userData);
   const userId = useSelector((state) => state.authSite.userId);
   const initialValues = {
@@ -29,10 +30,10 @@ function Addsite({ setModal,toastRef }) {
       if (picLinks.hasOwnProperty(values.siteName)) {
         dispatch(addData(values));
         setModal(false);
-        toastRef.current.style.display="flex"
-        setTimeout(()=>{
-          toastRef.current.style.display="none"
-        },4000)
+        toastRef.current.style.display = "flex";
+        setTimeout(() => {
+          toastRef.current.style.display = "none";
+        }, 4000);
       } else {
         alert("Please enter proper sitename");
       }
@@ -54,7 +55,11 @@ function Addsite({ setModal,toastRef }) {
           <p className="addText">Add Site</p>
         </div>
         <div className="addSiteEntry">
-          <form className="addSiteForm" onSubmit={formik.handleSubmit}>
+          <form
+            autoComplete="off"
+            className="addSiteForm"
+            onSubmit={formik.handleSubmit}
+          >
             <div className="addSiteInput">
               <label className="urlLabel" for="url">
                 URL
@@ -155,7 +160,7 @@ function Addsite({ setModal,toastRef }) {
           </div>
           <p className="siteAdderText">Add Sites</p>
           <div className="sitesAddingCon">
-            <form onSubmit={formik.handleSubmit}>
+            <form autoComplete="off" onSubmit={formik.handleSubmit}>
               <div className="addSiteFormInput">
                 <label className="input5Label" for="url">
                   URL

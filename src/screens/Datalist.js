@@ -33,7 +33,7 @@ function Datalist() {
   const dispatch = useDispatch();
   return (
     <div className="listCon">
-      {modal && <Addsite toastRef={toastRef} setModal={setModal} />}
+      {modal && <Addsite setToast= {setToast} toastRef={toastRef} setModal={setModal} />}
       {modal1 && <EditSite data1={data1} setModal1={setModal1} />}
 
       {!modal && !modal1 && (

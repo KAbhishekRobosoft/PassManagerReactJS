@@ -15,7 +15,6 @@ function App() {
       let mPin;
       try {
         mPin = localStorage.getItem("mPin");
-        console.log(mPin)
       } catch (e) {
         console.log(e);
       }

@@ -58,7 +58,7 @@ function Editsite({ setModal1, data1 }) {
           </p>
         </div>
         <div className="addSiteEntry">
-          <form className="addSiteForm" onSubmit={formik.handleSubmit}>
+          <form autoComplete="off" className="addSiteForm" onSubmit={formik.handleSubmit}>
             <div className="addSiteInput">
               <label className="urlLabel" for="url">
                 URL
@@ -170,7 +170,7 @@ function Editsite({ setModal1, data1 }) {
           </div>
           <p className="siteAdderText">Edit</p>
           <div className="sitesAddingCon">
-            <form onSubmit={formik.handleSubmit}>
+            <form autoComplete="off" onSubmit={formik.handleSubmit}>
               <div className="addSiteFormInput">
                 <label className="input5Label" for="url">
                   URL

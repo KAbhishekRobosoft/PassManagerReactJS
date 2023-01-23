@@ -51,7 +51,7 @@
   max-width: 35px;
   font-family: "Open Sans Bold", sans-serif;
   color: white;
-  
+
   font-weight: bold;
   margin-left: 20px;
 }
@@ -157,7 +157,7 @@
 .listDisplay {
   min-height: calc(100vh - 133px);
   background-color: #f4f4f4;
-  
+
   margin-top: 20.2px;
   display: flex;
   flex-direction: column;
@@ -186,6 +186,16 @@
 
   .iconDes {
     font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .toastText {
+    font-size: 15px;
+  }
+
+  .iconDes {
+    margin-right: 10px;
   }
 }
 

@@ -282,6 +282,10 @@
     width: 97%;
   }
 
+  .input7:focus{
+    outline:none;
+  }
+
   .butCon1 {
     height: 56px;
     width: 100vw;
