@@ -1,6 +1,7 @@
-.addSiteCon {
-  min-height: 100vh;
-  width: 100vw;
+
+
+.addSiteCon1{
+  height:calc(100vh - 64px);
 }
 
 .addSiteNav {
@@ -44,32 +45,32 @@
 }
 
 .addSiteEntry {
-  height: calc(100vh - 72px);
+  height: calc(100vh - 75px);
   width: 100%;
 }
 
 .addSiteForm {
-  height: calc(100vh - 98px);
+  height: calc(100vh - 75px);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .addSiteInput {
   display: flex;
   flex-direction: column;
   align-self: center;
-  margin-left: 19.5px;
+  width:90%;
   margin-top: 25px;
-  margin-bottom: 29.5;
-  margin-right: 25px;
 }
 
 .butCon {
   height: 56px;
-  width: 100vw;
-  width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: 200px;
+  margin-top: 190px;
+  width:100%;
 }
 
 .addSiteEntryInput {
@@ -163,6 +164,7 @@
   border: 1px solid #d7d7d7;
   border-radius: 4px;
   font-size: 16px;
+  
 }
 
 @media screen and (min-width: 900px) {

@@ -157,7 +157,6 @@
 .listDisplay {
   min-height: calc(100vh - 133px);
   background-color: #f4f4f4;
-
   margin-top: 20.2px;
   display: flex;
   flex-direction: column;

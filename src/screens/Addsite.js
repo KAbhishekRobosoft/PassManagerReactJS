@@ -54,96 +54,95 @@ function Addsite({ setModal, toastRef, setToast }) {
           />
           <p className="addText">Add Site</p>
         </div>
-        <div className="addSiteEntry">
-          <form
-            autoComplete="off"
-            className="addSiteForm"
-            onSubmit={formik.handleSubmit}
-          >
-            <div className="addSiteInput">
-              <label className="urlLabel" for="url">
-                URL
-              </label>
-              <input
-                name="url"
-                onChange={formik.handleChange}
-                className="addSiteEntryInput"
-                type="text"
-                required
-              />
 
-              <label className="siteLabel" for="siteName">
-                Site Name
-              </label>
-              <input
-                name="siteName"
-                onChange={formik.handleChange}
-                className="addSiteEntryInput"
-                type="text"
-                required
-              />
+        <form
+          autoComplete="off"
+          className="addSiteForm"
+          onSubmit={formik.handleSubmit}
+        >
+          <div className="addSiteInput">
+            <label className="urlLabel" for="url">
+              URL
+            </label>
+            <input
+              name="url"
+              onChange={formik.handleChange}
+              className="addSiteEntryInput"
+              type="text"
+              required
+            />
 
-              <label className="dropLabel" for="sector">
-                Sector/Folder
-              </label>
-              <select
-                onChange={formik.handleChange}
-                className="dropdown"
-                name="sector"
-                id="media"
-              >
-                <option selected>Select Option</option>
-                <option value="Social Media">Social Media</option>
-                <option value="Website">Website</option>
-              </select>
+            <label className="siteLabel" for="siteName">
+              Site Name
+            </label>
+            <input
+              name="siteName"
+              onChange={formik.handleChange}
+              className="addSiteEntryInput"
+              type="text"
+              required
+            />
 
-              <label className="userLabel" for="userName">
-                User Name
-              </label>
-              <input
-                name="userName"
-                onChange={formik.handleChange}
-                className="addSiteEntryInput"
-                type="text"
-                required
-              />
+            <label className="dropLabel" for="sector">
+              Sector/Folder
+            </label>
+            <select
+              onChange={formik.handleChange}
+              className="dropdown"
+              name="sector"
+              id="media"
+            >
+              <option selected>Select Option</option>
+              <option value="Social Media">Social Media</option>
+              <option value="Website">Website</option>
+            </select>
 
-              <label className="passwordLabel" for="password">
-                Site Password
-              </label>
-              <input
-                name="password"
-                onChange={formik.handleChange}
-                className="addSiteEntryInput"
-                type="password"
-                required
-              />
+            <label className="userLabel" for="userName">
+              User Name
+            </label>
+            <input
+              name="userName"
+              onChange={formik.handleChange}
+              className="addSiteEntryInput"
+              type="text"
+              required
+            />
 
-              <label className="notesLabel" for="notes">
-                Notes
-              </label>
-              <textarea
-                onChange={formik.handleChange}
-                name="notes"
-                className="addSiteEntryInput1"
-              />
-            </div>
-            <div className="butCon">
-              <button
-                type="reset"
-                onClick={(e) => {
-                  formik.resetForm({ initialValues });
-                }}
-                className="addSiteBut1"
-              >
-                Reset
-              </button>
-              <button type="submit" className="addSiteBut2">
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
+            <label className="passwordLabel" for="password">
+              Site Password
+            </label>
+            <input
+              name="password"
+              onChange={formik.handleChange}
+              className="addSiteEntryInput"
+              type="password"
+              required
+            />
+
+            <label className="notesLabel" for="notes">
+              Notes
+            </label>
+            <textarea
+              onChange={formik.handleChange}
+              name="notes"
+              className="addSiteEntryInput1"
+            />
+          </div>
+          <div className="butCon">
+            <button
+              type="reset"
+              onClick={(e) => {
+                formik.resetForm({ initialValues });
+              }}
+              className="addSiteBut1"
+            >
+              Reset
+            </button>
+            <button type="submit" className="addSiteBut2">
+              Save
+            </button>
+          </div>
+        </form>
       </div>
 
       {/* Big screen design */}
