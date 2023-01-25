@@ -1,5 +1,5 @@
 .addSiteCon1{
-  height:calc(100vh - 64px);
+  position: relative;
 }
 
 .addSiteNav {
@@ -43,16 +43,14 @@
 }
 
 .addSiteEntry {
-  height: calc(100vh - 75px);
   width: 100%;
 }
 
 .addSiteForm {
-  height: calc(100vh - 75px);
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 700px;
 }
 
 .addSiteInput {
@@ -67,8 +65,9 @@
   height: 56px;
   display: flex;
   flex-direction: row;
-  margin-top: 195px;
   width:100%;
+  position: absolute;
+  bottom: 0px;
 }
 
 .addSiteEntryInput {

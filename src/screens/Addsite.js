@@ -7,12 +7,20 @@ import close from "../images/close_btn.png";
 import { addData } from "../redux/CrudSice";
 import { useDispatch, useSelector } from "react-redux";
 import { picLinks } from "../utils/Hardcoded";
+import { setCount, setHeightSize } from "../redux/CrudSice";
 
 function Addsite({ setModal, toastRef, setToast }) {
   const dispatch = useDispatch();
   setToast(true);
   const data = useSelector((state) => state.addDetails.userData);
+  const count = useSelector((state) => state.addDetails.count);
+  const heightSize = useSelector((state) => state.addDetails.heightSize);
   const userId = useSelector((state) => state.authSite.userId);
+
+  if (count === 0) {
+    dispatch(setHeightSize(window.innerHeight));
+    dispatch(setCount());
+  }
   const initialValues = {
     url: "",
     siteName: "",
@@ -42,7 +50,7 @@ function Addsite({ setModal, toastRef, setToast }) {
   return (
     <div className="addSiteCon">
       {/* Small screen design */}
-      <div className="addSiteCon1">
+      <div style={{ height: heightSize }} className="addSiteCon1">
         <div className="addSiteNav">
           <FontAwesomeIcon
             onClick={() => {

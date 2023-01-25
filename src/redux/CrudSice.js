@@ -6,19 +6,19 @@ const addSiteReducer = createSlice({
   initialState: {
     userData: [],
     userTemp: [],
-    isLoading: true,
+    count: 0,
+    heightSize: 0,
   },
 
   //Reducer function
   reducers: {
-    //Add Object to state
-    // addData: (state, action) => {
-    //   state.userData = [];
-    //   state.userTemp = [];
-    //   state.userData = [...action.payload];
-    //   state.userTemp = [...action.payload];
-    //   state.isLoading = false;
-    // },
+    setCount: (state, action) => {
+      state.count = state.count + 1
+    },
+
+    setHeightSize: (state, action) => {
+      state.heightSize = action.payload;
+    },
 
     addData: (state, action) => {
       state.userData.push(action.payload);
@@ -79,5 +79,7 @@ export const {
   setIsLoading,
   filterCategory,
   addSingleData,
+  setCount,
+  setHeightSize
 } = addSiteReducer.actions;
 export const reducer = addSiteReducer.reducer;
