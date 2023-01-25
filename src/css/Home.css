@@ -7,6 +7,7 @@
   width: 100vw;
   min-height: 100vh;
   background: linear-gradient(#00b4ff, #0e85ff);
+  padding-bottom: 10px;
 }
 
 .logoDisp {
