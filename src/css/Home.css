@@ -69,6 +69,7 @@
 @media screen and (min-width: 900px) {
   .homeCon {
     height:100vh;
+    min-height: 0vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,7 +77,8 @@
   }
 
   .authCon {
-    min-height: 60%;
+    height: 60%;
+    min-height: 0vh;
     width: 55%;
     display: flex;
     border: 1px solid transparent;
