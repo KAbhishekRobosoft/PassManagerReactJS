@@ -270,8 +270,16 @@ function Addsite({ setModal, toastRef, setToast }) {
                 />
               </div>
               <div className="butCon1">
-                <button className="addSiteBut3">Reset</button>
-                <button className="addSiteBut4">Save</button>
+              <button
+              type="reset"
+              onClick={(e) => {
+                formik.resetForm({ initialValues });
+              }}
+              className="addSiteBut3"
+            >
+              reset
+            </button>
+                <button type="submit" className="addSiteBut4">Save</button>
               </div>
             </form>
           </div>
