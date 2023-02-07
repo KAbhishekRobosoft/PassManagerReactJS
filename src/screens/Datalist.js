@@ -148,7 +148,7 @@ function Datalist() {
                     fontSize: "26px",
                   }}
                 >
-                  Please Click on the "+"" symbol to add sites
+                  Please Click on the "+" symbol to add sites
                 </p>
               </div>
             )}
@@ -292,7 +292,7 @@ function Datalist() {
                     fontSize: "26px",
                   }}
                 >
-                  Please Click on the "+"" symbol to add sites
+                  Please Click on the "+" symbol to add sites
                 </p>
               </div>
             )}

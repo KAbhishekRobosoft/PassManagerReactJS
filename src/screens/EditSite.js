@@ -21,7 +21,6 @@ function Editsite({ setModal1, data1 }) {
       notes: data1.notes,
     },
     onSubmit: (values) => {
-      console.log(values);
       values["id"] = data1.id;
       dispatch(updateData(values));
       setModal1(false);

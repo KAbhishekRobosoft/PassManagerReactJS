@@ -50,7 +50,7 @@ function Addsite({ setModal, toastRef, setToast }) {
   return (
     <div className="addSiteCon">
       {/* Small screen design */}
-      <div style={{ height: heightSize }} className="addSiteCon1">
+      <div className="addSiteCon1">
         <div className="addSiteNav">
           <FontAwesomeIcon
             onClick={() => {
