@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useFormik } from "formik";
 import "../css/Addsite.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +8,7 @@ import { updateData } from "../redux/CrudSice";
 import { useDispatch } from "react-redux";
 
 function Editsite({ setModal1, data1 }) {
-  console.log(data1);
+  const updateRef= useRef(null)
   const [edit, setEdit] = useState(true);
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -21,7 +21,7 @@ function Editsite({ setModal1, data1 }) {
       notes: data1.notes,
     },
     onSubmit: (values) => {
-      console.log(values)
+      console.log(values);
       values["id"] = data1.id;
       dispatch(updateData(values));
       setModal1(false);
@@ -44,6 +44,7 @@ function Editsite({ setModal1, data1 }) {
           <p
             onClick={() => {
               setEdit(false);
+
             }}
             style={{
               marginRight: "50px",
@@ -58,7 +59,11 @@ function Editsite({ setModal1, data1 }) {
           </p>
         </div>
         <div className="addSiteEntry">
-          <form autoComplete="off" className="addSiteForm" onSubmit={formik.handleSubmit}>
+          <form
+            autoComplete="off"
+            className="addSiteForm"
+            onSubmit={formik.handleSubmit}
+          >
             <div className="addSiteInput">
               <label className="urlLabel" for="url">
                 URL
@@ -168,7 +173,17 @@ function Editsite({ setModal1, data1 }) {
               alt="close_btn"
             />
           </div>
-          <p className="siteAdderText">Edit</p>
+          <div className="headerButCon">
+            <p className="siteAdderText">Edit</p>
+            {edit && <div className="butCon4">
+                <button onClick={()=>{
+                  setEdit(false)
+                  updateRef.current.style.backgroundColor="#0e85ff"
+                }} type="button" className="addSiteBut12">
+                  Edit
+                </button>
+              </div>}
+          </div>
           <div className="sitesAddingCon">
             <form autoComplete="off" onSubmit={formik.handleSubmit}>
               <div className="addSiteFormInput">
@@ -180,6 +195,7 @@ function Editsite({ setModal1, data1 }) {
                   onChange={formik.handleChange}
                   className="input5"
                   type="text"
+                  disabled={edit}
                   defaultValue={data1.url}
                   required
                 />
@@ -200,6 +216,7 @@ function Editsite({ setModal1, data1 }) {
                       className="input6"
                       defaultValue={data1.siteName}
                       type="text"
+                      disabled={edit}
                       required
                     />
                   </div>
@@ -217,6 +234,7 @@ function Editsite({ setModal1, data1 }) {
                       onChange={formik.handleChange}
                       required
                       className="dropdown"
+                      disabled={edit}
                       name="sector"
                       id="media"
                     >
@@ -255,6 +273,7 @@ function Editsite({ setModal1, data1 }) {
                       onChange={formik.handleChange}
                       defaultValue={data1.userName}
                       className="input6"
+                      disabled={edit}
                       type="text"
                       required
                     />
@@ -274,6 +293,7 @@ function Editsite({ setModal1, data1 }) {
                       onChange={formik.handleChange}
                       className="input7"
                       defaultValue={data1.password}
+                      disabled={edit}
                       type="password"
                       required
                     />
@@ -286,11 +306,12 @@ function Editsite({ setModal1, data1 }) {
                   name="notes"
                   defaultValue={data1.notes}
                   onChange={formik.handleChange}
+                  disabled={edit}
                   className="addSiteEntryInput1"
                 />
               </div>
               <div className="butCon1">
-                <button type="submit" className="addSiteBut4">
+                <button disabled={edit} ref={updateRef} type="submit" className="addSiteBut15">
                   Update
                 </button>
               </div>

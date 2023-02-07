@@ -27,13 +27,14 @@ function Datalist() {
   const [modal1, setModal1] = useState(false);
   const [data1, setData1] = useState({});
   const [toast, setToast] = useState(true);
-  const userData = useSelector((state) => state.addDetails.userData);
-  const userId = useSelector((state) => state.authSite.userId);
-  const data = userData.filter((ele) => ele.userId === userId);
+  const data = useSelector((state) => state.addDetails.particularUser);
   const dispatch = useDispatch();
+
   return (
     <div className="listCon">
-      {modal && <Addsite setToast= {setToast} toastRef={toastRef} setModal={setModal} />}
+      {modal && (
+        <Addsite setToast={setToast} toastRef={toastRef} setModal={setModal} />
+      )}
       {modal1 && <EditSite data1={data1} setModal1={setModal1} />}
 
       {!modal && !modal1 && (
@@ -111,18 +112,46 @@ function Datalist() {
             </div>
           )}
           <div className="listDisplay">
-            {data.length > 0
-              ? data.map((ele) => {
-                  return (
-                    <ListDisplay
-                      setData1={setData1}
-                      setModal1={setModal1}
-                      key={ele.id}
-                      ele={ele}
-                    />
-                  );
-                })
-              : null}
+            {data.length > 0 ? (
+              data.map((ele) => {
+                return (
+                  <ListDisplay
+                    setData1={setData1}
+                    setModal1={setModal1}
+                    key={ele.id}
+                    ele={ele}
+                  />
+                );
+              })
+            ) : (
+              <div
+                style={{
+                  margin: "auto",
+                  marginTop: "100px",
+                  height: "215px",
+                  width: "80%",
+                  backgroundColor: "white",
+                  borderRadius: "107.5px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <p
+                  style={{
+                    maxWidth: "390px",
+                    textAlign: "center",
+                    fontFamily: "Open Sans, sans-serif",
+                    fontWeight: 400,
+                    lineHeight: "36px",
+                    fontSize: "26px",
+                  }}
+                >
+                  Please Click on the "+"" symbol to add sites
+                </p>
+              </div>
+            )}
           </div>
           <img
             onClick={() => {
@@ -227,18 +256,46 @@ function Datalist() {
             </div>
           </div>
           <div className="listDisplay1">
-            {data.length > 0
-              ? data.map((ele) => {
-                  return (
-                    <ListDisplay
-                      setData1={setData1}
-                      setModal1={setModal1}
-                      key={ele.id}
-                      ele={ele}
-                    />
-                  );
-                })
-              : null}
+            {data.length > 0 ? (
+              data.map((ele) => {
+                return (
+                  <ListDisplay
+                    setData1={setData1}
+                    setModal1={setModal1}
+                    key={ele.id}
+                    ele={ele}
+                  />
+                );
+              })
+            ) : (
+              <div
+                style={{
+                  margin: "auto",
+                  marginTop: "100px",
+                  height: "215px",
+                  width: "50%",
+                  backgroundColor: "white",
+                  borderRadius: "107.5px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <p
+                  style={{
+                    maxWidth: "390px",
+                    textAlign: "center",
+                    fontFamily: "Open Sans, sans-serif",
+                    fontWeight: 400,
+                    lineHeight: "36px",
+                    fontSize: "26px",
+                  }}
+                >
+                  Please Click on the "+"" symbol to add sites
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { login } from "../redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { filterParticular } from "../redux/CrudSice";
 
 function Signin() {
   const passRef = useRef(null);
@@ -24,6 +25,7 @@ function Signin() {
           if (ele.Number.toString() === values.Number.toString()) {
             alert("Signin Successfull");
             dispatch(login({ id: ele.id, mPin: values.Mpin }));
+            dispatch(filterParticular(ele.id))
             flag = 1;
           }
         });

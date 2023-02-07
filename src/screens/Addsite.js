@@ -277,7 +277,7 @@ function Addsite({ setModal, toastRef, setToast }) {
               }}
               className="addSiteBut3"
             >
-              reset
+              Reset
             </button>
                 <button type="submit" className="addSiteBut4">Save</button>
               </div>
